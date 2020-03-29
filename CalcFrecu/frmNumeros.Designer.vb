@@ -22,9 +22,9 @@ Partial Class frmNumeros
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Me.dgvNumeros = New System.Windows.Forms.DataGridView()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Me.dgvNumerosColor = New System.Windows.Forms.DataGridView()
         Me.Negro = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Rojo = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.btnCalcular = New System.Windows.Forms.Button()
@@ -35,27 +35,31 @@ Partial Class frmNumeros
         Me.lblRojos = New System.Windows.Forms.Label()
         Me.txtGiros = New System.Windows.Forms.TextBox()
         Me.lblGiros = New System.Windows.Forms.Label()
-        Me.txtNumeroRojo = New System.Windows.Forms.TextBox()
-        Me.txtNumeroNegro = New System.Windows.Forms.TextBox()
-        CType(Me.dgvNumeros, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.txtNumero = New System.Windows.Forms.TextBox()
+        Me.dgvNumeros = New System.Windows.Forms.DataGridView()
+        Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        CType(Me.dgvNumerosColor, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.dgvNegros, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.dgvRojos, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.dgvNumeros, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
-        'dgvNumeros
+        'dgvNumerosColor
         '
-        Me.dgvNumeros.AllowUserToAddRows = False
-        Me.dgvNumeros.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgvNumeros.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Negro, Me.Rojo})
-        Me.dgvNumeros.Location = New System.Drawing.Point(12, 67)
-        Me.dgvNumeros.Name = "dgvNumeros"
-        Me.dgvNumeros.Size = New System.Drawing.Size(155, 371)
-        Me.dgvNumeros.TabIndex = 0
+        Me.dgvNumerosColor.AllowUserToAddRows = False
+        Me.dgvNumerosColor.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.dgvNumerosColor.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing
+        Me.dgvNumerosColor.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Negro, Me.Rojo})
+        Me.dgvNumerosColor.Location = New System.Drawing.Point(133, 67)
+        Me.dgvNumerosColor.Name = "dgvNumerosColor"
+        Me.dgvNumerosColor.Size = New System.Drawing.Size(165, 371)
+        Me.dgvNumerosColor.TabIndex = 0
         '
         'Negro
         '
-        DataGridViewCellStyle3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Negro.DefaultCellStyle = DataGridViewCellStyle3
+        DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Negro.DefaultCellStyle = DataGridViewCellStyle1
         Me.Negro.HeaderText = "Negro"
         Me.Negro.MaxInputLength = 2
         Me.Negro.Name = "Negro"
@@ -63,10 +67,10 @@ Partial Class frmNumeros
         '
         'Rojo
         '
-        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle4.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle4.ForeColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.Rojo.DefaultCellStyle = DataGridViewCellStyle4
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.Rojo.DefaultCellStyle = DataGridViewCellStyle2
         Me.Rojo.HeaderText = "Rojo"
         Me.Rojo.MaxInputLength = 2
         Me.Rojo.Name = "Rojo"
@@ -77,7 +81,7 @@ Partial Class frmNumeros
         Me.btnCalcular.Location = New System.Drawing.Point(12, 12)
         Me.btnCalcular.Name = "btnCalcular"
         Me.btnCalcular.Size = New System.Drawing.Size(75, 23)
-        Me.btnCalcular.TabIndex = 1
+        Me.btnCalcular.TabIndex = 2
         Me.btnCalcular.Text = "Calcular"
         Me.btnCalcular.UseVisualStyleBackColor = True
         '
@@ -88,16 +92,16 @@ Partial Class frmNumeros
         Me.dgvNegros.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.dgvNegros.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgvNegros.Location = New System.Drawing.Point(173, 67)
+        Me.dgvNegros.Location = New System.Drawing.Point(304, 67)
         Me.dgvNegros.Name = "dgvNegros"
         Me.dgvNegros.ReadOnly = True
-        Me.dgvNegros.Size = New System.Drawing.Size(155, 371)
+        Me.dgvNegros.Size = New System.Drawing.Size(165, 371)
         Me.dgvNegros.TabIndex = 2
         '
         'lblNumeros
         '
         Me.lblNumeros.AutoSize = True
-        Me.lblNumeros.Location = New System.Drawing.Point(36, 44)
+        Me.lblNumeros.Location = New System.Drawing.Point(34, 44)
         Me.lblNumeros.Name = "lblNumeros"
         Me.lblNumeros.Size = New System.Drawing.Size(14, 13)
         Me.lblNumeros.TabIndex = 3
@@ -106,7 +110,7 @@ Partial Class frmNumeros
         'lblNegros
         '
         Me.lblNegros.AutoSize = True
-        Me.lblNegros.Location = New System.Drawing.Point(170, 44)
+        Me.lblNegros.Location = New System.Drawing.Point(306, 44)
         Me.lblNegros.Name = "lblNegros"
         Me.lblNegros.Size = New System.Drawing.Size(44, 13)
         Me.lblNegros.TabIndex = 4
@@ -119,16 +123,16 @@ Partial Class frmNumeros
         Me.dgvRojos.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.dgvRojos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgvRojos.Location = New System.Drawing.Point(334, 67)
+        Me.dgvRojos.Location = New System.Drawing.Point(475, 67)
         Me.dgvRojos.Name = "dgvRojos"
         Me.dgvRojos.ReadOnly = True
-        Me.dgvRojos.Size = New System.Drawing.Size(155, 371)
+        Me.dgvRojos.Size = New System.Drawing.Size(165, 371)
         Me.dgvRojos.TabIndex = 2
         '
         'lblRojos
         '
         Me.lblRojos.AutoSize = True
-        Me.lblRojos.Location = New System.Drawing.Point(331, 44)
+        Me.lblRojos.Location = New System.Drawing.Point(477, 44)
         Me.lblRojos.Name = "lblRojos"
         Me.lblRojos.Size = New System.Drawing.Size(37, 13)
         Me.lblRojos.TabIndex = 4
@@ -139,7 +143,7 @@ Partial Class frmNumeros
         Me.txtGiros.Location = New System.Drawing.Point(133, 14)
         Me.txtGiros.Name = "txtGiros"
         Me.txtGiros.Size = New System.Drawing.Size(100, 20)
-        Me.txtGiros.TabIndex = 5
+        Me.txtGiros.TabIndex = 1
         Me.txtGiros.Text = "50"
         '
         'lblGiros
@@ -151,34 +155,39 @@ Partial Class frmNumeros
         Me.lblGiros.TabIndex = 3
         Me.lblGiros.Text = "Giros:"
         '
-        'txtNumeroRojo
+        'txtNumero
         '
-        Me.txtNumeroRojo.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtNumeroRojo.ForeColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.txtNumeroRojo.Location = New System.Drawing.Point(107, 41)
-        Me.txtNumeroRojo.MaxLength = 2
-        Me.txtNumeroRojo.Name = "txtNumeroRojo"
-        Me.txtNumeroRojo.Size = New System.Drawing.Size(45, 20)
-        Me.txtNumeroRojo.TabIndex = 5
-        Me.txtNumeroRojo.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        Me.txtNumero.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtNumero.Location = New System.Drawing.Point(54, 41)
+        Me.txtNumero.MaxLength = 2
+        Me.txtNumero.Name = "txtNumero"
+        Me.txtNumero.Size = New System.Drawing.Size(45, 20)
+        Me.txtNumero.TabIndex = 0
+        Me.txtNumero.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
-        'txtNumeroNegro
+        'dgvNumeros
         '
-        Me.txtNumeroNegro.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtNumeroNegro.Location = New System.Drawing.Point(56, 41)
-        Me.txtNumeroNegro.MaxLength = 2
-        Me.txtNumeroNegro.Name = "txtNumeroNegro"
-        Me.txtNumeroNegro.Size = New System.Drawing.Size(45, 20)
-        Me.txtNumeroNegro.TabIndex = 5
-        Me.txtNumeroNegro.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        Me.dgvNumeros.AccessibleDescription = ""
+        Me.dgvNumeros.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dgvNumeros.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column1})
+        Me.dgvNumeros.Location = New System.Drawing.Point(12, 67)
+        Me.dgvNumeros.Name = "dgvNumeros"
+        Me.dgvNumeros.Size = New System.Drawing.Size(115, 371)
+        Me.dgvNumeros.TabIndex = 5
+        '
+        'Column1
+        '
+        Me.Column1.HeaderText = " #"
+        Me.Column1.Name = "Column1"
+        Me.Column1.Width = 50
         '
         'frmNumeros
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(499, 450)
-        Me.Controls.Add(Me.txtNumeroNegro)
-        Me.Controls.Add(Me.txtNumeroRojo)
+        Me.ClientSize = New System.Drawing.Size(702, 450)
+        Me.Controls.Add(Me.dgvNumeros)
+        Me.Controls.Add(Me.txtNumero)
         Me.Controls.Add(Me.txtGiros)
         Me.Controls.Add(Me.lblRojos)
         Me.Controls.Add(Me.lblNegros)
@@ -187,18 +196,19 @@ Partial Class frmNumeros
         Me.Controls.Add(Me.dgvRojos)
         Me.Controls.Add(Me.dgvNegros)
         Me.Controls.Add(Me.btnCalcular)
-        Me.Controls.Add(Me.dgvNumeros)
+        Me.Controls.Add(Me.dgvNumerosColor)
         Me.Name = "frmNumeros"
         Me.Text = "Números"
-        CType(Me.dgvNumeros, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.dgvNumerosColor, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.dgvNegros, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.dgvRojos, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.dgvNumeros, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
 
-    Friend WithEvents dgvNumeros As DataGridView
+    Friend WithEvents dgvNumerosColor As DataGridView
     Friend WithEvents btnCalcular As Button
     Friend WithEvents dgvNegros As DataGridView
     Friend WithEvents lblNumeros As Label
@@ -207,8 +217,9 @@ Partial Class frmNumeros
     Friend WithEvents lblRojos As Label
     Friend WithEvents txtGiros As TextBox
     Friend WithEvents lblGiros As Label
-    Friend WithEvents txtNumeroRojo As TextBox
-    Friend WithEvents txtNumeroNegro As TextBox
+    Friend WithEvents txtNumero As TextBox
     Friend WithEvents Negro As DataGridViewTextBoxColumn
     Friend WithEvents Rojo As DataGridViewTextBoxColumn
+    Friend WithEvents dgvNumeros As DataGridView
+    Friend WithEvents Column1 As DataGridViewTextBoxColumn
 End Class
