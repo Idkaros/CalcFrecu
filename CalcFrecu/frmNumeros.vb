@@ -90,7 +90,15 @@
                 For Each row As DataGridViewRow In dgvNumerosColor.Rows
                     If row.Cells(0).Value Is Nothing Then
                         num_negr_vaci_inde = ConvEnte(row.Index)
-                        Exit For
+                        If chkHistorico.Checked Then
+                            'Se graba en el primer índice
+                            Exit For
+                        End If
+                    Else
+                        If Not chkHistorico.Checked Then
+                            'Se graba en el último índice
+                            Exit For
+                        End If
                     End If
                 Next
 
@@ -99,17 +107,27 @@
                     dgvNumerosColor.Rows(num_negr_vaci_inde).Cells(0).Value = num
                 Else
                     'Sino, inserto una nueva fila
-                    dgvNumerosColor.Rows.Insert(0, num, Nothing)
+                    If chkHistorico.Checked Then
+                        dgvNumerosColor.Rows.Add(num, Nothing)
+                    Else
+                        dgvNumerosColor.Rows.Insert(0, num, Nothing)
+                    End If
                 End If
-                dgvNumeros.Rows.Add(num)
-                'Si es rojo
-            ElseIf NumeColo(num) = Color.Rojo Then
+
+                    'Si es rojo
+                    ElseIf NumeColo(num) = Color.Rojo Then
 
                 'Busco el índice de la primera fila de número rojo vacia para llenar
                 For Each row As DataGridViewRow In dgvNumerosColor.Rows
                     If row.Cells(1).Value Is Nothing Then
                         num_rojo_vaci_inde = row.Index
-                        Exit For
+                        If chkHistorico.Checked Then
+                            Exit For
+                        End If
+                    Else
+                        If Not chkHistorico.Checked Then
+                            Exit For
+                        End If
                     End If
                 Next
 
@@ -118,9 +136,19 @@
                     dgvNumerosColor.Rows(num_rojo_vaci_inde).Cells(1).Value = num
                 Else
                     'Sino, inserto una nueva fila
-                    dgvNumerosColor.Rows.Insert(0, Nothing, num)
+                    If chkHistorico.Checked Then
+                        dgvNumerosColor.Rows.Add(Nothing, num)
+                    Else
+                        dgvNumerosColor.Rows.Insert(0, Nothing, num)
+                    End If
                 End If
+            End If
+
+            'Si se está cargando números historicos se carga hacia el final
+            If chkHistorico.Checked Then
                 dgvNumeros.Rows.Add(num)
+            Else
+                dgvNumeros.Rows.Insert(0, num)
             End If
         End If
         txtNumero.Text = Nothing

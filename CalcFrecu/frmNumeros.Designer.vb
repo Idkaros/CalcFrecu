@@ -22,8 +22,8 @@ Partial Class frmNumeros
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.dgvNumerosColor = New System.Windows.Forms.DataGridView()
         Me.Negro = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Rojo = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -38,6 +38,7 @@ Partial Class frmNumeros
         Me.txtNumero = New System.Windows.Forms.TextBox()
         Me.dgvNumeros = New System.Windows.Forms.DataGridView()
         Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.chkHistorico = New System.Windows.Forms.CheckBox()
         CType(Me.dgvNumerosColor, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.dgvNegros, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.dgvRojos, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -58,8 +59,8 @@ Partial Class frmNumeros
         '
         'Negro
         '
-        DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Negro.DefaultCellStyle = DataGridViewCellStyle1
+        DataGridViewCellStyle3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Negro.DefaultCellStyle = DataGridViewCellStyle3
         Me.Negro.HeaderText = "Negro"
         Me.Negro.MaxInputLength = 2
         Me.Negro.Name = "Negro"
@@ -67,10 +68,10 @@ Partial Class frmNumeros
         '
         'Rojo
         '
-        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.Rojo.DefaultCellStyle = DataGridViewCellStyle2
+        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle4.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle4.ForeColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.Rojo.DefaultCellStyle = DataGridViewCellStyle4
         Me.Rojo.HeaderText = "Rojo"
         Me.Rojo.MaxInputLength = 2
         Me.Rojo.Name = "Rojo"
@@ -168,6 +169,8 @@ Partial Class frmNumeros
         'dgvNumeros
         '
         Me.dgvNumeros.AccessibleDescription = ""
+        Me.dgvNumeros.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.dgvNumeros.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgvNumeros.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column1})
         Me.dgvNumeros.Location = New System.Drawing.Point(12, 67)
@@ -181,11 +184,24 @@ Partial Class frmNumeros
         Me.Column1.Name = "Column1"
         Me.Column1.Width = 50
         '
+        'chkHistorico
+        '
+        Me.chkHistorico.AutoSize = True
+        Me.chkHistorico.Checked = True
+        Me.chkHistorico.CheckState = System.Windows.Forms.CheckState.Checked
+        Me.chkHistorico.Location = New System.Drawing.Point(105, 43)
+        Me.chkHistorico.Name = "chkHistorico"
+        Me.chkHistorico.Size = New System.Drawing.Size(67, 17)
+        Me.chkHistorico.TabIndex = 6
+        Me.chkHistorico.Text = "Histórico"
+        Me.chkHistorico.UseVisualStyleBackColor = True
+        '
         'frmNumeros
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(702, 450)
+        Me.Controls.Add(Me.chkHistorico)
         Me.Controls.Add(Me.dgvNumeros)
         Me.Controls.Add(Me.txtNumero)
         Me.Controls.Add(Me.txtGiros)
@@ -222,4 +238,5 @@ Partial Class frmNumeros
     Friend WithEvents Rojo As DataGridViewTextBoxColumn
     Friend WithEvents dgvNumeros As DataGridView
     Friend WithEvents Column1 As DataGridViewTextBoxColumn
+    Friend WithEvents chkHistorico As CheckBox
 End Class
